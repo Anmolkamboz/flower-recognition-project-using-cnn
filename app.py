@@ -7,7 +7,7 @@ import io
 app = Flask(__name__)
 
 # Load trained model
-model = load_model('C:\\projects\\flower-recognition-project-using-cnn\\Model.keras')
+model = load_model('/app/Model.keras')
 
 # list of flower class names
 class_names = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
@@ -39,4 +39,4 @@ def predict():
         return jsonify({'prediction': predicted_class})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
